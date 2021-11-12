@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="caja" id="caja" cols="30" rows="10"></textarea>
+    <br><br>
+    <input type="button" value="Calcular" onclick=cifrar(); >
+    <br><br>
+    <textarea id="caja2" cols="30" rows="10"></textarea>
+
+    <script>
+        var clave = [1,2,3,4,5];
+        var cont = 0;
+        
+        function cifrar(){
+            let frase1 = document.getElementById("caja").value;
+            let frase2 = "";
+
+            for(let i = 0; i < frase1.length; i++){
+                let aux = frase1.charCodeAt(i);
+                aux += clave[cont];
+                cont++;
+                if (cont == clave.length) {
+                    cont = 0;
+                }
+                aux = String.fromCharCode(aux);
+                frase2 += aux;
+            }
+            document.getElementById("caja2").value = frase2;
+
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

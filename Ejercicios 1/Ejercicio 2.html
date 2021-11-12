@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <p>Nombre: <input type="text" name="nombre" size="40"></p>
+	<p>Apellidos: <input type="text" name="apellidos" size="40"></p>
+    <p> Edad: <input type="number"  id="edad" size="40"></p>
+    <p> Salario: <input type="number"  id="salario" size="40"></p>
+		<p>
+			<input type="button" value="calcular" onclick=calcular()>
+			
+		</p>
+    <script>
+        function calcular() {
+            let age=parseInt(document.getElementById("edad").value);
+            let salar=parseFloat(document.getElementById("salario").value);
+            let nsal;
+        if ((salar < 2000) && (salar > 1000)){
+            if (age > 45){
+                nsal= salar *0.03;
+               salar += nsal;
+            }else{
+                 nsal= salar *0.10;
+               salar += nsal;
+            }
+        }
+        else if (salar < 1000){
+            if (age < 30){
+                salar= 1100;
+            }
+        
+            else if ((age > 30) && (age < 45)) {
+                let nsal= salar *0.03;
+              salar += nsal;
+            }
+            else{
+                let nsal= salar *0.15;
+                salar += nsal;
+        }
+    }
+    document.getElementById("salario").value=salar;
+}
+
+    </script>
+</body>
+</html>

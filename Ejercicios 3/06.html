@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+    <script>
+        var frase1= prompt("escribe una frase");
+        frase1=frase1.toLowerCase();
+        
+        var caracterespecial="[]{}¬€~#@|,.-!·$%&/()=?¿¡+*Ç¨^";
+        for(let i=0;i<caracterespecial.length;i++){
+            frase1=frase1.replaceAll(caracterespecial[i],'');
+        }
+        frase1=frase1.replaceAll('á','a');
+        frase1=frase1.replaceAll('é','e');
+        frase1=frase1.replaceAll('í','i');
+        frase1=frase1.replaceAll('ó','o');
+        frase1=frase1.replaceAll('ú','u');
+        frase1=frase1.replaceAll(' ','');
+        var arr=[];
+        for (let i=0;i<frase1.length;i++){
+        
+            arr.push(frase1[i]);
+        }
+        var frase2=arr.reverse().join("");
+        alert(frase2);
+        alert(frase1);
+        if(frase2==frase1){
+            alert("Es palíndromo");
+        }else{
+            alert("no es palíndromo");
+        }
+        
+    </script>
+</body>
+</html>

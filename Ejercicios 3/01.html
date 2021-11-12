@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="pepe" cols="30" rows="10"></textarea>
+   
+    <script>
+        
+        var arr = [4,0,3,4,7,3,5,8,1,8,8,0,2,3,1,2,5,7,3,2,5,1];
+        var set2 = new Set();
+        for(let dato of arr){
+            set2.add(dato);
+        }
+    
+        //var set1 = new Set([4,0,3,4,7,3,5,8,1,8,8,0,2,3,1,2,5,7,3,2,5,1]);
+        var arrV2 = [...set2];
+        for(let valor of arrV2 ){
+            document.write(valor);
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <script>
+ var miCadena="cabrales, torta del casar, idiazabal"
+var miCadenaMayusculas="Cabrales, Torta del Casar, Idiazabal"
+var queso=prompt("introduce un queso");
+var minusculas=miCadena.indexOf(queso);
+var mayusculas=miCadenaMayusculas.indexOf(queso);
+if(minusculas==-1){
+    alert("el queso "+queso+" no está en esta cadena "+miCadena);
+}else{
+    alert("el queso "+queso+" está en la posición "+minusculas+" de "+miCadena);
+}
+if(mayusculas==-1){
+    alert("el queso "+queso+" no está en esta cadena "+miCadenaMayusculas);
+}else{
+    alert("el queso "+queso+" está en la posición "+mayusculas+" de "+miCadenaMayusculas);
+}
+
+    </script>
+   
+</body>
+</html>

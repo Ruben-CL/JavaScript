@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <textarea name="caja" id="caja" cols="30" rows="10"></textarea>
+    <br><br>
+    <input type="button" value="ver" onclick=cifrar(); >
+    <br><br>
+    <input type="button" value="parada" onclick=paradaAleatoria(); >
+    <br><br>
+    <textarea id="caja2" cols="30" rows="10"></textarea>
+    <script>
+    
+function cifrar(){
+            let frase1 = document.getElementById("caja").value;
+            let letras=[];
+            for(let i = 0; i < frase1.length; i++){
+                let aux = frase1.charAt(i);
+                if(aux!=''){
+                    letras.push(aux);
+                }
+               
+            }
+            let aleatorio= Math.floor(Math.random() * letras.length) ;
+            let letra=(aleatorio,letras[aleatorio]);
+            document.getElementById("caja2").value=letra;
+           
+}
+function paradaAleatoria(){
+    let frase2 = document.getElementById("caja").value;
+            let letras2=[];
+            for(let i = 0; i < frase2.length; i++){
+                let aux2 = frase2.charAt(i);
+                if(aux2!=''){
+                    letras2.push(aux2);
+                }
+               
+            }
+            let aleatorio2= Math.floor(Math.random() * letras2.length) ;
+            let letra2=(aleatorio2,letras2[aleatorio2]);
+            document.getElementById("caja2").value=letra2;
+           
+}
+if (letra==paradaAleatoria.letra2){
+                document.getElementById("caja").value=" ";
+    document.getElementById("caja2").value=" ";
+}
+    </script>
+</body>
+</html>

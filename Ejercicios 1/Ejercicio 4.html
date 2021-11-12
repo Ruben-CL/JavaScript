@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <script>
+    
+    var aleatorio =parseInt(Math.floor(Math.random() * (1000 - 1)) + 1);
+    var contador=0;
+    var numero=prompt("Introduce un número");  
+    while (numero!=aleatorio) {
+     contador++;
+     if (numero < aleatorio){
+         alert("el número es menor");
+     }
+     else if (numero > aleatorio){
+        alert("el número es mayor");
+       
+     }
+     numero=prompt("Introduce un número");
+    }
+ alert("enhorabuena, el numero es "+aleatorio+" has necesitado "+contador+ " intentos");
+    </script>
+   
+</body>
+</html>

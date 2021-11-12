@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cifrado estilo C�sar</title>
+</head>
+<body>
+	<script>
+	let texto=prompt("Escriba el texto");
+	let clave;
+	let frasecifrada="";
+	do {
+		clave=prompt("Escriba la clave (un n�mero entero)");
+		if(isNaN(Number(clave))){
+			alert("No has escrito un n�mero");
+		}
+	}while(isNaN(Number(clave)));
+	clave=parseInt(clave); //Si hay decimales desaparecen;
+	for(let letra of texto){
+		
+		let cifra=letra.charCodeAt(letra)+clave;
+		//document.write(String.fromCharCode(cifra));
+		frasecifrada=frasecifrada + String.fromCharCode(cifra);
+	}
+	alert(frasecifrada);
+	</script>
+</body>
+</html>

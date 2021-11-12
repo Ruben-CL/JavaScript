@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1</title>
+</head>
+<body>
+    <textarea id="pepe" cols="30" rows="10"></textarea>
+   
+    <script>
+        
+        var arr = [4,0,3,4,7,3,5,8,1,8,8,0,2,3,1,2,5,7,3,2,5,1];
+        var arr2=[];
+        for(let i=0;i<arr.length;i++){
+            if (arr2.indexOf(arr[i])==-1){
+                arr2.push(arr[i]);
+            }
+        }
+
+        document.getElementById("pepe").value=arr2;
+    </script>
+</body>
+</html>
