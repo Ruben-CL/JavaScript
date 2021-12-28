@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica de evaluación 28 octubre 2021</title>
+</head>
+<body>
+    <center>
+        <form name="form1" style="align-items: center;">
+            <div>
+                <label for="cjnombre">Nombre: </label><input type="text" name="cjnombre"><br><br>
+            </div>
+            <div>
+                <label>Visualizar: </label><br><br>
+                <textarea cols="30" rows="15"></textarea>
+            </div>
+            <br>
+            <div>
+                <input type="button" value="Añadir" onclick=añadir()> <input type="button" value="Buscar" onclick="buscar()"> <input type="button" value="Eliminar" onclick="eliminar()"> <input type="button" value="Visualizar" onclick=visualizar()><br><br>
+            </div>
+            <div>
+                <input type="button" value="Limpiar" onclick=limpiar()>
+            </div>
+        </form>
+    </center>
+    <script>
+        function añadir(){
+            for (let i=0;i<10; i++){
+                
+            let frase1 = document.getElementsByName("cjnombre")[i].value;
+            document.getElementsByTagName("<textarea>") .value+=frase1;
+                if(i>0){
+                   var mensaje=prompt("¿En que posición desea añadir al alumno? Introduzca Inicio, Final o número");
+                    if (mensaje==Inicio){
+                        frase1.splice(0,0,frase1[i]);
+                    }
+                }
+            }
+        }
+        function buscar(){
+            var miCadena=añadir().value;
+            miCadena=miCadena.toLowerCase();
+
+var nombre=prompt("introduce el nombre que quiere buscar");
+var minusculas=miCadena.indexOf(nombre);
+
+if(minusculas==-1){
+    alert("el alumno "+nombre+" no está en esta cadena "+miCadena+" puede añadirlo pulsando el botón añadir");
+}else{
+    alert("el alumno "+nombre+" está en la posición "+minusculas+" de "+miCadena+" si desea eliminarlo deberá pulsar el botón eliminar");
+}
+        }
+        function visualizar(){
+            document.getElementsByTagName("textarea").value;
+        }
+        function limpiar(){
+            document.getElementsByTagName("textarea").value='';
+        }
+function eliminar(){
+let eliminado=miCadena.splice(nombre);
+}
+    </script>
+</body>
+</html>

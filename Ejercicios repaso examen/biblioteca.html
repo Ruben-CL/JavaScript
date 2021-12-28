@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+</head>
+<body>
+    <form>
+        <pre>Titulo             <input type="text" id="Titulo"></pre>
+        <pre>Autor              <input type="text" id="Autor">       <input type="button" value="Añadir" onclick="añadir()"></pre>
+        <pre>Editorial          <input type="text" id="Editorial"></pre>
+        <pre>Año de publicación <input type="text" id="Anio">      <input type="button" value="Consultar" onclick="consultar()"></pre>
+        <pre>Signatura          <input type="text" id="Signatura"></pre>
+        <input type="button" value="Limpiar" onclick="limpiar()">
+    </form>
+    <script>
+        var Biblioteca= new Array();
+        var cont=0;
+        function libro (tit,aut,edit,anio,sig){
+           this.titulo=tit;
+           this.autor=aut;
+           this.editorial=edit;
+           this.aniopub=anio;
+           this.signatura=cont;
+        }
+        function limpiar(){
+        document.getElementById("Titulo").value="";
+        document.getElementById("Anio").value="";
+        document.getElementById("Autor").value="";
+        document.getElementById("Editorial").value="";
+        document.getElementById("Signatura").value="";  
+        }
+        function añadir(){
+        var titulo=document.getElementById("Titulo").value;
+        var autor=document.getElementById("Autor").value;
+        var editorial=document.getElementById("Editorial").value;
+        var aniopub=document.getElementById("Anio").value;
+        var signatura=cont++;
+        var libroNuevo=new libro(titulo,autor,editorial,aniopub,signatura);
+        Biblioteca.push(libroNuevo);
+        document.getElementById("Titulo").value="";
+        document.getElementById("Anio").value="";
+        document.getElementById("Autor").value="";
+        document.getElementById("Editorial").value="";
+        document.getElementById("Signatura").value="";
+    }
+
+        function consultar(){
+         var titulo=document.getElementById("Titulo").value; 
+         var esta="el libro "+ titulo+ " no está disponible";
+         for (let i = 0; i < Biblioteca.length; i++) {
+             if (titulo==Biblioteca[i].titulo) {
+                document.getElementById("Anio").value=Biblioteca[i].aniopub;
+                document.getElementById("Autor").value=Biblioteca[i].autor;
+                document.getElementById("Editorial").value=Biblioteca[i].editorial;
+                document.getElementById("Signatura").value=Biblioteca[i].signatura;
+                esta="el libro "+ titulo+ " está disponible";
+                 break;
+             }
+         }
+         alert(esta);
+               }
+    </script>
+</body>
+</html>

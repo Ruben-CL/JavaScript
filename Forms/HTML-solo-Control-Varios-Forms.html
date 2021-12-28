@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo-varios-forms</title>
+</head>
+<body>
+    <p align="center"><b>VER PROPIEDADES DEL DOCUMENTO</b></p>
+    <center>
+        <a href="Ejemplo-1-uso-document.html" name="externo1">Ver ejemplo apertura ventanas</a>
+        <A href="#Formulario2" name="interno0">Ir a Formulario 2</A>
+        <a href="#caracteristicas" name="interno1">Ir a características</a>
+    <hr>
+     <form action="" name="Formulario1">
+        <table name="t0-1">
+            <tr><td><img src="cascada.jpg" alt="" id="img0-1" style="height: 40mm;width: 40mm;"></td><td><label for="">Nombre</label><input type="textbox" id="nombre"><br><br><br><label for="">Apellidos</label><input type="textbox" id="apellidos"></td></tr>
+            <tr><td><input type="button" value="Aceptar" id="bton-aceptar-01"><br></td><td><input type="button" value="cancelar" id="bton-cancel-01"><br></td></tr>
+        </table>
+     </form>
+     <hr>   
+     <form action="" name="Formulario2">
+        <table>
+            <tr><td><img src="playa.jpg" alt="" id="img0-2" style="height: 40mm;width: 40mm;"></td><td><label for="">Nombre</label><input type="textbox" id="nombre"><br><br><br><label for="">Apellidos</label><input type="textbox" id="apellidos"></td></tr>
+            <tr><td><input type="button" value="Aceptar" id="bton-aceptar-02"><br></td><td><input type="button" value="cancelar" id="bton-aceptar-02"><br></td></tr>
+        </table>
+     </form>
+    
+    <hr>
+    <A name="interno2"></A> 
+    <b><center>CARACTERISTICAS DEL DOCUMENTO</b><br>
+    </center>
+        <script>
+           /* var contimagenes=0;
+            var contenlacesex=0;
+            var contenlacesin=0;
+            var contformularios=0;
+            var nombreenin=[];
+            var nombreenex=[];*/
+          document.write("Número de imágenes: "+document.images.length+"<br>");
+          document.write("Número de enlaces externos: "+document.links.length+"<br>");
+          document.write("Enlaces externos:"+document.links[0].name+","+document.links[1].name+","+document.links[2].name+"<br>");
+          document.write("Número de enlaces internos: "+document.anchors.length+"<br>");
+          document.write("Nombre enlaces internos: "+document.anchors[0].name+","+document.anchors[1].name+","+document.anchors[2].name+","+document.anchors[3].name+"<br>");
+          document.write("Número de formularios: "+document.forms.length+"<br>");
+          document.write("Fecha última modificación: "+document.lastModified+"<br>");
+          for (const i of document.forms) {
+              for (const j of i.elements) {
+                  document.write(j);
+                  document.write(j.name);
+                  document.write(j.id);
+                  document.write("<br>");
+              }
+          }
+
+        </script>
+</body>
+</html>

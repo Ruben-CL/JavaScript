@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validando usuario y clave</title>
+</head>
+
+<body>
+    <label for="">Usuario: </label><input type="text" name="perfil" value=""><br><br>
+    <label for="">Clave: </label><input type="text" name="perfil" value=""><br><br>
+    <input type="button" value="Validar" onclick="validar()"> <input type="button" value="Cancelar"
+        onclick="cancelar()">
+    <script>
+        function validar() {
+            validarUsuario();
+            validarContrasenia();
+            
+        
+        }
+        //var numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        var especialCaracters = ['+', '*', '?', '¿', '^', '@', '#', '$', '%', '&', '/'];
+        var mayus = false;
+        var nada= false;
+        var caracter = false;
+        var num = false;
+        var mayuscon = false;
+        var caractercon = false;
+        var minuscon = false;
+        var numcon = false;
+        function validarUsuario() {
+            var usuario = document.getElementsByTagName('input')[0].value;
+
+            for (let i = 0; i < usuario.length; i++) {
+                if(usuario==" " || usuario==null){
+                    nada=true;
+                    alert("es obligatorio escribir un nombre");
+                    document.getElementsByTagName('input')[0].value = "";
+                    break;
+                }
+                if (especialCaracters.includes(usuario.charAt(i)) == true) {
+                    caracter = true;
+                    alert("no se admiten caracteres especiales,introduzca el nombre de nuevo.");
+                    document.getElementsByTagName('input')[0].value = "";
+                    break;
+
+                } 
+                if (!isNaN(usuario.charAt(i))) {
+                            num = true;
+                            alert("no se admiten números, introduzca el nombre de nuevo");
+                            document.getElementsByTagName('input')[0].value = "";
+                            break;
+                        }
+                if (usuario.charAt(i) == usuario.charAt(i).toUpperCase()) {
+                        mayus = true;
+                        alert("no se admiten mayúsculas,introduzca el nombre de nuevo.");
+                        document.getElementsByTagName('input')[0].value = "";
+                        break;
+                    } 
+                
+                    
+                
+            }
+            if (caracter == false && mayus == false && num==false && nada==false) {
+                alert("usuario correcto");
+            }
+        }
+        function validarContrasenia() {
+            var clave = document.getElementsByTagName('input')[1].value;
+            for (let i = 0; i < clave.length; i++) {
+                if(clave==" " || clave==null){
+                    
+                    alert("es obligatorio escribir una contraseña y la contraseña no puede tener espacios en blanco");
+                    document.getElementsByTagName('input')[1].value = "";
+                
+                }
+                if (especialCaracters.includes(clave.charAt(i)) == true) {
+                    caractercon = true;
+
+                }
+                if (clave.charAt(i) == clave.charAt(i).toUpperCase()) {
+                    mayuscon = true;
+
+                }
+
+                if (clave.charAt(i) == clave.charAt(i).toLowerCase()) {
+                    minuscon = true;
+
+                }
+                if (!isNaN(clave.charAt(i))) {
+                    numcon = true;
+                }
+
+
+            }
+            if (minuscon == true && mayuscon == true && caractercon == true && numcon == true) {
+                alert("contraseña correcta");
+            } else {
+                alert("la contraseña debe tener mayúsculas, minúsculas, números y caracteres especiales");
+                minuscon = false;
+                mayuscon = false;
+                caractercon = false;
+                numcon = false;
+                document.getElementsByTagName('input')[1].value = "";
+            }
+        }
+        function cancelar() {
+            alert("ha cancelado la operación");
+            minuscon = false;
+            mayuscon = false;
+            caractercon = false;
+            mayus = false;
+            caracter = false;
+            num = false;
+            document.getElementsByTagName('input')[0].value = "";
+            document.getElementsByTagName('input')[1].value = "";
+        }
+    </script>
+</body>
+
+</html>

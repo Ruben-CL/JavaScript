@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenador</title>
+</head>
+
+<body>
+    <p>Marca <input type="text"></p>
+    <p>Modelo <input type="text"></p>
+    <p>Memoria RAM <input type="number"></p>
+    <p>SD <input type="number"></p>
+    <p>Microprocesador <input type="text"></p>
+    <p>Grafica <input type="text"></p>
+    <input type="button" value="añadir" onclick="accion(this.value)">
+    <input type="button" value="buscar" onclick="accion(this.value)">
+    <input type="button" value="eliminar" onclick="accion(this.value)">
+    <input type="button" value="limpiar" onclick="accion(this.value)"><br>
+    <textarea rows="30" cols="30"></textarea><br>
+    <img src="" id="imagen">
+
+    <script>
+        var ordenadores = new Array();
+        function ordenador(marca, modelo, memoria, sd, micro, grafica, imagen) {
+            this.marca = marca;
+            this.modelo = modelo;
+            this.memoria = memoria;
+            this.sd = sd;
+            this.micro = micro;
+            this.grafica = grafica;
+            this.imagen = imagen;
+            ordenador.toString = function () {
+                return "Ordenador: " + " Marca: " + marca + " Modelo: " + modelo + " Memoria: " + memoria + " SD " + sd + " Microprocesador: " + micro + " Gráfica: " + grafica;
+            }
+        }
+        function accion(valor) {
+            switch (valor) {
+                case "añadir": añadir();
+                    break;
+                case "limpiar": limpiar();
+                    break;
+                case "buscar": buscar();
+                    break;
+                case "eliminar": eliminar();
+
+
+            }
+        }
+        function añadir() {
+            var marca = document.getElementsByTagName('input')[0].value;
+            var modelo = document.getElementsByTagName('input')[1].value;
+            var memoria = document.getElementsByTagName('input')[2].value;
+            var sd = document.getElementsByTagName('input')[3].value;
+            var micro = document.getElementsByTagName('input')[4].value;
+            var grafica = document.getElementsByTagName('input')[5].value;
+            ordenadorNuevo = new ordenador(marca, modelo, memoria, sd, micro, grafica, "descarga.jpg");
+            ordenadores.push(ordenadorNuevo);
+            document.getElementsByTagName('input')[0].value = "";
+            document.getElementsByTagName('input')[1].value = "";
+            document.getElementsByTagName('input')[2].value = "";
+            document.getElementsByTagName('input')[3].value = "";
+            document.getElementsByTagName('input')[4].value = "";
+            document.getElementsByTagName('input')[5].value = "";
+
+        }
+        function limpiar() {
+            document.getElementsByTagName('input')[0].value = "";
+            document.getElementsByTagName('input')[1].value = "";
+            document.getElementsByTagName('input')[2].value = "";
+            document.getElementsByTagName('input')[3].value = "";
+            document.getElementsByTagName('input')[4].value = "";
+            document.getElementsByTagName('input')[5].value = "";
+            document.getElementsByTagName('textarea')[0].value = "";
+            document.getElementById("imagen").src = "";
+        }
+        function buscar() {
+            var marca = document.getElementsByTagName('input')[0].value;
+            var modelo = document.getElementsByTagName('input')[1].value;
+            var esta = "el ordenador de la marca " + marca + " y modelo " + modelo + " no está disponible";
+            for (let i = 0; i < ordenadores.length; i++) {
+                if ((marca == ordenadores[i].marca) && (modelo == ordenadores[i].modelo)) {
+
+                    document.getElementsByTagName('input')[2].value = ordenadores[i].memoria;
+                    document.getElementsByTagName('input')[3].value = ordenadores[i].sd;
+                    document.getElementsByTagName('input')[4].value = ordenadores[i].micro;
+                    document.getElementsByTagName('input')[5].value = ordenadores[i].grafica;
+                    document.getElementsByTagName('textarea')[0].value = ordenador.toString();
+                    document.getElementById("imagen").src = ordenadorNuevo.imagen;
+                    esta = "el ordenador de la marca " + marca + " y modelo " + modelo + " está disponible";
+                    break;
+                }
+
+            }
+            alert(esta);
+        }
+        function eliminar(){
+            var marca = document.getElementsByTagName('input')[0].value;
+            var modelo = document.getElementsByTagName('input')[1].value;
+            for (let i = 0; i < ordenadores.length; i++) {
+                if ((marca == ordenadores[i].marca) && (modelo == ordenadores[i].modelo)) {
+                    ordenadores.splice((ordenadores[i])-1, 1);
+                        break;
+                }
+            }
+            limpiar();
+        }
+
+    </script>
+</body>
+
+</html>

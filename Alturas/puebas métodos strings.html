@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos Strings</title>
+</head>
+<body>
+    <script>
+var numeros="123456789";
+var letras=" abcdefcghij ";
+alert(numeros[1]);
+alert(numeros.charAt(4));
+alert(numeros.charCodeAt(3));
+alert(letras.toUpperCase());
+alert(letras[0].toLowerCase());
+alert(letras.indexOf('c'));
+alert(letras.lastIndexOf('c'));
+alert(letras.endsWith('c'));
+alert(letras.startsWith('c'));
+var cadenaNueva=numeros.concat(letras);
+alert(cadenaNueva);
+alert(letras.replace('abc','123'));
+alert(letras.trim());
+
+alert(numeros.slice(3,6));
+alert(numeros.substring(5,8));
+alert(letras.split('',6));
+
+    </script>
+    
+
+</body>
+</html>

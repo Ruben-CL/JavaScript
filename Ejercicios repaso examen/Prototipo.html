@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototipo</title>
+</head>
+
+<body>
+    <script>
+        miArray = [1, 2, 3, 4];
+        Array.prototype.mediaArimetica = function () {
+            let suma = 0;
+            for (let value of this) {
+                suma += value;
+            }
+            let tamaño = this.length;
+            return suma / tamaño;
+        }
+        alert(miArray.mediaArimetica());
+
+    </script>
+</body>
+
+</html>

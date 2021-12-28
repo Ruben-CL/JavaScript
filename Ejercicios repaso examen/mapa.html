@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa</title>
+</head>
+
+<body>
+
+    <script>
+        miArray = new Array();
+        do {
+            var palabras = prompt("introduce una palabra o pulsa terminar para salir");
+            miArray.push(palabras);
+
+        } while ((palabras != " ") && (palabras != null));
+        miArray.splice(miArray.length - 1, 1);
+        function comparar(a, b) {
+            return a.localeCompare(b);
+        }
+        var miArrayOrd=miArray.sort(comparar);
+        console.log(miArrayOrd);
+        function mapaderepeticiones(miArrayOrd) {
+            var palabrasRepetidas = new Map();
+            for ( palabras of miArrayOrd) {
+                if (palabrasRepetidas.has(palabras)) {
+                    var cont=palabrasRepetidas.get(palabras);
+                    palabrasRepetidas.set(palabras,cont+1);
+
+                }else{
+                    palabrasRepetidas.set(palabras,1);
+                }
+               console.log(palabrasRepetidas);
+            }
+
+        }
+       mapaderepeticiones(miArrayOrd);
+    </script>
+</body>
+
+</html>

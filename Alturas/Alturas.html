@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alturas</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <img src="./imagen/personas.jpg" width="175" height="175" alt="personas">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">Nombre:</label>
+                <input type="text" name="nombre">
+            </td>
+        </tr>
+        <tr></tr>
+        <td>
+            <label for="">Apellidos:</label>
+            <input type="text" name="apellidos">
+        </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">Altura:</label>
+                <input type="text" name="altura">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">Identificador:</label>
+                <input type="text" name="identificador" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">Profesion:</label>
+                <textarea rows="10" cols="30"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="añadir" onclick="accion(this.value)">
+                <input type="button" value="buscar" onclick="accion(this.value)">
+                <input type="button" value="terminar" onclick="accion(this.value)">
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        var personas = new Array();
+
+        function persona(nombre, apellidos, altura, identificador, profesion, imagen) {
+            this.nombre = nombre;
+            this.apellidos = apellidos;
+            this.altura = altura;
+            this.identificador = nombre.charAt(0).toUpperCase() + apellidos[0] + apellidos[1] + apellidos[2] + altura;
+            this.profesion = profesion;
+            this.imagen = imagen;
+        }
+        function accion(valor) {
+            switch (valor) {
+                case "añadir":
+                    añadir();
+                    break;
+
+                case "buscar":
+                    buscar();
+                    break;
+                case "terminar":
+                    terminar();
+
+            }
+        }
+        function imagenepersona() {
+            img = prompt("introduzca el nombre de la persona");
+            return "./imagen/"+img + ".jpg";
+        }
+        function limpiar() {
+            document.getElementsByTagName("input")[0].value = "";
+            document.getElementsByTagName("input")[1].value = "";
+            document.getElementsByTagName("input")[2].value = "";
+            document.getElementsByTagName("input")[3].value = "";
+            document.getElementsByTagName("textarea")[0].value = "";
+            document.getElementsByTagName("img")[0].src = "./imagen/personas.jpg";
+        }
+        function añadir() {
+            var nombre = document.getElementsByTagName("input")[0].value;
+            var apellidos = document.getElementsByTagName("input")[1].value;
+            var altura = document.getElementsByTagName("input")[2].value;
+            var identificador = document.getElementsByTagName("input")[3].value;
+            var profesion = document.getElementsByTagName("textarea")[0].value;
+            var imagen = imagenepersona();
+            var personaNueva = new persona(nombre, apellidos, altura, identificador, profesion, imagen);
+            personas.push(personaNueva);
+            limpiar();
+        }
+        function buscar() {
+            var buscarNombre=document.getElementsByTagName("input")[0].value;
+            var esta="La persona no está en la lista";
+            for (let i = 0; i < personas.length; i++) {
+                if(personas[i].nombre== buscarNombre){
+            document.getElementsByTagName("input")[1].value = personas[i].apellidos;
+            document.getElementsByTagName("input")[2].value = personas[i].altura;
+            document.getElementsByTagName("input")[3].value = personas[i].identificador;
+            document.getElementsByTagName("textarea")[0].value = personas[i].profesion;
+            document.getElementsByTagName("img")[0].src = personas[i].imagen;
+            esta="La persona está en la lista";
+                }
+                
+            }
+            alert(esta);
+           
+        }
+        function terminar() {
+            alert("Has terminado la búsqueda");
+            limpiar();
+        }
+
+    </script>
+
+
+
+
+</body>
+
+</html>

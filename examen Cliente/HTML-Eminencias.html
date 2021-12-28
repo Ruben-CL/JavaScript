@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Eminencias</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td><label for="">Nombre: </label></td>
+                        <td><input type="text" name="ficha"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Apellidos</label></td>
+                        <td><input type="text" name="ficha"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">DNI: </label></td>
+                        <td><input type="text" name="ficha" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Fecha Nacimiento: </label></td>
+                        <td><input type="text" id="born"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Fecha Muerte: </label></td>
+                        <td><input type="text" id="dead"></td>
+                    </tr>
+                </table>
+            </td>
+            <td><img src="ordenador.jpg" width="143" height="144" alt=""></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="AÑADIR" style="width:40mm;height: 7mm;"
+                    onclick="añadir()">
+            </td>
+            <td><input type="button" value="BUSCAR" style="width: 40mm;height: 7mm;"
+                    onclick="buscar()"></td>
+        </tr>
+    </table>
+    <h3>Principal aportación al mundo</h3>
+    <textarea cols="30" rows="5" style="width: 116mm;"></textarea>
+    <script>
+        var cientificos = new Array();
+
+        function cientifico(nombre, apellido, dni, fechaN, fechaM, proto, imagen) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.dni = nombre[0]+apellido[apellido.length-3]+apellido[apellido.length-2]+apellido[apellido.length-1]+Math.floor(Math.random()*(1000- 1) + 1);
+            this.fechaN = fechaN;
+            this.fechaM = fechaM;
+            this.proto = proto;
+            this.imagen = imagen;
+
+        }
+        function imagenCientifico(){
+           
+        img = prompt("Introduzca la iniciales del nombre y los apellidos en mayusculas seguido del resto del apellido \n Ejemplo: Alan, Turing ==> ATuring")
+        return img+".jpg";
+    }
+
+        function añadir() {
+
+            var nombre = document.getElementsByTagName('input')[0].value;
+            var apellido = document.getElementsByTagName('input')[1].value;
+            var dni = document.getElementsByTagName('input')[2].value;
+            var fechaN = document.getElementsByTagName('input')[3].value;
+            var fechaM = document.getElementsByTagName('input')[4].value;
+            var proto = document.getElementsByTagName('textarea')[0].value;
+            var imagen = imagenCientifico();
+            var cientificoNuevo = new cientifico(nombre, apellido, dni, fechaN, fechaM, proto, imagen);
+            cientificos.push(cientificoNuevo);
+            document.getElementsByTagName('input')[0].value = "";
+            document.getElementsByTagName('input')[1].value = "";
+            document.getElementsByTagName('input')[2].value = "";
+            document.getElementsByTagName('input')[3].value = "";
+            document.getElementsByTagName('input')[4].value = "";
+            document.getElementsByTagName('textarea')[0].value = "";
+            document.getElementsByTagName('img')[0].src = "ordenador.jpg";
+        }
+        function buscar() {
+            var nombre = document.getElementsByTagName('input')[0].value;
+            var esta = "el nombre introducido no existe";
+            for (let i = 0; i < cientificos.length; i++) {
+                if (cientificos[i].nombre == nombre) {
+
+                    document.getElementsByTagName('input')[1].value = cientificos[i].apellido;
+                    document.getElementsByTagName('input')[2].value = cientificos[i].dni;
+                    document.getElementsByTagName('input')[3].value = cientificos[i].fechaN;
+                    document.getElementsByTagName('input')[4].value = cientificos[i].fechaM;
+                    document.getElementsByTagName('textarea')[0].value = cientificos[i].proto;
+                    document.getElementsByTagName('img')[0].src = cientificos[i].imagen;
+                    esta = "el nombre introducido existe";
+                  
+                    
+
+                }
+            }
+            alert(esta);
+
+        }
+
+    </script>
+</body>
+
+</html>
